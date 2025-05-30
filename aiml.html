@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexus AI | AI/ML & Data Science Solutions</title>
+    <title>CyberVStacks.ai | AI/ML & Data Science Solutions</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
@@ -16,7 +16,9 @@
         :root {
             --primary: #2563eb;
             --primary-dark: #1d4ed8;
-            --secondary: #10b981;
+            --cyber-blue: #0ea5e9;
+            --cyber-purple: #8b5cf6;
+            --cyber-teal: #14b8a6;
             --dark: #0f172a;
             --light: #f8fafc;
             --gray: #64748b;
@@ -24,6 +26,7 @@
             --transition: all 0.3s ease;
             --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             --shadow-hover: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --cyber-gradient: linear-gradient(135deg, var(--cyber-blue) 0%, var(--cyber-purple) 100%);
         }
 
         body {
@@ -32,6 +35,7 @@
             background-color: var(--light);
             line-height: 1.6;
             overflow-x: hidden;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23f0f9ff"/><path d="M0,50 L100,50 M50,0 L50,100" stroke="%23e0f2fe" stroke-width="0.5"/></svg>');
         }
 
         h1, h2, h3, h4, h5 {
@@ -71,19 +75,40 @@
         }
 
         .logo-icon {
-            color: var(--primary);
-            font-size: 28px;
-            margin-right: 10px;
+            background: var(--cyber-gradient);
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+        }
+
+        .logo-icon i {
+            color: white;
+            font-size: 22px;
         }
 
         .logo-text {
             font-size: 24px;
-            font-weight: 700;
+            font-weight: 800;
             color: var(--dark);
+            letter-spacing: -0.5px;
         }
 
-        .logo-text span {
-            color: var(--primary);
+        .logo-text .ai {
+            color: var(--cyber-purple);
+            font-weight: 700;
+            position: relative;
+        }
+
+        .logo-text .ai::after {
+            content: '.ai';
+            color: var(--cyber-blue);
+            position: absolute;
+            right: -28px;
+            font-size: 0.9em;
         }
 
         .nav-links {
@@ -101,10 +126,11 @@
             font-weight: 500;
             transition: var(--transition);
             position: relative;
+            font-size: 16px;
         }
 
         .nav-links a:hover {
-            color: var(--primary);
+            color: var(--cyber-blue);
         }
 
         .nav-links a::after {
@@ -114,7 +140,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--primary);
+            background: var(--cyber-blue);
             transition: var(--transition);
         }
 
@@ -125,7 +151,7 @@
         .btn {
             display: inline-block;
             padding: 12px 28px;
-            background: var(--primary);
+            background: var(--cyber-gradient);
             color: white;
             border-radius: 30px;
             text-decoration: none;
@@ -134,29 +160,47 @@
             border: none;
             cursor: pointer;
             box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--cyber-purple) 0%, var(--cyber-blue) 100%);
+            z-index: -1;
+            opacity: 0;
+            transition: var(--transition);
         }
 
         .btn:hover {
-            background: var(--primary-dark);
             transform: translateY(-3px);
             box-shadow: var(--shadow-hover);
         }
 
+        .btn:hover::before {
+            opacity: 1;
+        }
+
         .btn-outline {
             background: transparent;
-            border: 2px solid var(--primary);
-            color: var(--primary);
+            border: 2px solid var(--cyber-blue);
+            color: var(--cyber-blue);
         }
 
         .btn-outline:hover {
-            background: var(--primary);
+            background: var(--cyber-blue);
             color: white;
         }
 
         /* Hero Section */
         .hero {
             padding: 160px 0 100px;
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
             position: relative;
             overflow: hidden;
         }
@@ -168,9 +212,10 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path fill="%232563eb" fill-opacity="0.05" d="M49.9,-46.4C63.5,-34.4,71.4,-14.5,69.5,5.6C67.5,25.7,55.7,46.1,39.1,57.7C22.5,69.4,1.1,72.4,-19.5,66.5C-40.1,60.7,-59.9,46.1,-66.4,27.4C-72.9,8.7,-66.1,-14.1,-55.3,-32.8C-44.5,-51.5,-29.7,-66.1,-10.9,-70.1C8,-74.1,20,-67.5,49.9,-46.4Z" transform="translate(100 100)" /></svg>');
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path fill="%230ea5e9" fill-opacity="0.05" d="M49.9,-46.4C63.5,-34.4,71.4,-14.5,69.5,5.6C67.5,25.7,55.7,46.1,39.1,57.7C22.5,69.4,1.1,72.4,-19.5,66.5C-40.1,60.7,-59.9,46.1,-66.4,27.4C-72.9,8.7,-66.1,-14.1,-55.3,-32.8C-44.5,-51.5,-29.7,-66.1,-10.9,-70.1C8,-74.1,20,-67.5,49.9,-46.4Z" transform="translate(100 100)" /></svg>');
             background-size: 60%;
             opacity: 0.4;
+            z-index: -1;
         }
 
         .hero-content {
@@ -190,7 +235,9 @@
         }
 
         .hero-text h1 span {
-            color: var(--primary);
+            background: var(--cyber-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             position: relative;
         }
 
@@ -211,12 +258,72 @@
             text-align: center;
         }
 
-        .hero-img {
+        .cyber-grid {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(90deg, rgba(14, 165, 233, 0.05) 1px, transparent 1px),
+                linear-gradient(rgba(14, 165, 233, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+            border-radius: 15px;
+            z-index: -1;
+        }
+
+        .hero-img-container {
+            position: relative;
             width: 100%;
             max-width: 500px;
-            border-radius: 10px;
+            margin: 0 auto;
+            border-radius: 15px;
+            overflow: hidden;
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            animation: float 5s ease-in-out infinite;
+            border: 1px solid rgba(14, 165, 233, 0.1);
+        }
+
+        .hero-img-placeholder {
+            background: linear-gradient(135deg, #e0f2fe 0%, #dbeafe 100%);
+            padding: 40px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 350px;
+            position: relative;
+        }
+
+        .floating-icons {
+            position: absolute;
+            font-size: 40px;
+            color: var(--cyber-blue);
+            opacity: 0.7;
+        }
+
+        .floating-icons:nth-child(1) {
+            top: 20px;
+            left: 20px;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .floating-icons:nth-child(2) {
+            top: 40px;
+            right: 40px;
+            animation: float 7s ease-in-out infinite;
+            animation-delay: 0.5s;
+        }
+
+        .floating-icons:nth-child(3) {
+            bottom: 30px;
+            left: 50px;
+            animation: float 6s ease-in-out infinite;
+            animation-delay: 1s;
+        }
+
+        .floating-icons:nth-child(4) {
+            bottom: 50px;
+            right: 30px;
+            animation: float 9s ease-in-out infinite;
+            animation-delay: 1.5s;
         }
 
         @keyframes float {
@@ -229,6 +336,14 @@
             100% {
                 transform: translateY(0px);
             }
+        }
+
+        .main-icon {
+            font-size: 150px;
+            background: var(--cyber-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            z-index: 2;
         }
 
         /* Stats Section */
@@ -250,23 +365,27 @@
             background: var(--light);
             box-shadow: var(--shadow);
             transition: var(--transition);
+            border: 1px solid rgba(14, 165, 233, 0.1);
         }
 
         .stat-item:hover {
             transform: translateY(-10px);
             box-shadow: var(--shadow-hover);
+            border-color: var(--cyber-blue);
         }
 
         .stat-icon {
             font-size: 2.5rem;
-            color: var(--primary);
+            background: var(--cyber-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin-bottom: 15px;
         }
 
         .stat-number {
             font-size: 2.5rem;
             font-weight: 700;
-            color: var(--primary);
+            color: var(--cyber-blue);
             margin-bottom: 10px;
         }
 
@@ -290,12 +409,26 @@
             font-size: 2.5rem;
             color: var(--dark);
             margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--cyber-gradient);
+            border-radius: 2px;
         }
 
         .section-title p {
             color: var(--gray);
             max-width: 600px;
-            margin: 0 auto;
+            margin: 30px auto 0;
             font-size: 1.1rem;
         }
 
@@ -313,16 +446,18 @@
             transition: var(--transition);
             position: relative;
             z-index: 1;
+            border: 1px solid rgba(14, 165, 233, 0.1);
         }
 
         .service-card:hover {
             transform: translateY(-10px);
             box-shadow: var(--shadow-hover);
+            border-color: var(--cyber-blue);
         }
 
         .service-icon {
             height: 200px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            background: var(--cyber-gradient);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -346,7 +481,7 @@
         }
 
         .service-link {
-            color: var(--primary);
+            color: var(--cyber-blue);
             text-decoration: none;
             font-weight: 600;
             display: flex;
@@ -360,7 +495,7 @@
         }
 
         .service-link:hover {
-            color: var(--primary-dark);
+            color: var(--cyber-purple);
         }
 
         .service-link:hover i {
@@ -415,12 +550,14 @@
 
         .step:hover {
             transform: scale(1.1);
-            border-color: var(--primary);
+            border-color: var(--cyber-blue);
         }
 
         .step-icon {
             font-size: 2.5rem;
-            color: var(--primary);
+            background: var(--cyber-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .step-content {
@@ -457,6 +594,7 @@
             padding: 30px;
             box-shadow: var(--shadow);
             position: relative;
+            border: 1px solid rgba(14, 165, 233, 0.1);
         }
 
         .testimonial-card::before {
@@ -465,7 +603,7 @@
             top: 20px;
             left: 20px;
             font-size: 5rem;
-            color: var(--primary);
+            color: var(--cyber-blue);
             opacity: 0.1;
             font-family: serif;
             line-height: 1;
@@ -487,7 +625,7 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: var(--primary);
+            background: var(--cyber-gradient);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -509,9 +647,27 @@
         /* CTA Section */
         .cta {
             padding: 100px 0;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            background: var(--cyber-gradient);
             color: white;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path fill="white" fill-opacity="0.05" d="M49.9,-46.4C63.5,-34.4,71.4,-14.5,69.5,5.6C67.5,25.7,55.7,46.1,39.1,57.7C22.5,69.4,1.1,72.4,-19.5,66.5C-40.1,60.7,-59.9,46.1,-66.4,27.4C-72.9,8.7,-66.1,-14.1,-55.3,-32.8C-44.5,-51.5,-29.7,-66.1,-10.9,-70.1C8,-74.1,20,-67.5,49.9,-46.4Z" transform="translate(100 100)" /></svg>');
+            background-size: 60%;
+        }
+
+        .cta .container {
+            position: relative;
+            z-index: 2;
         }
 
         .cta h2 {
@@ -528,7 +684,7 @@
 
         .cta .btn {
             background: white;
-            color: var(--primary);
+            color: var(--cyber-blue);
             font-size: 1.1rem;
             padding: 15px 40px;
         }
@@ -565,7 +721,7 @@
             left: 0;
             width: 50px;
             height: 3px;
-            background: var(--primary);
+            background: var(--cyber-blue);
         }
 
         .footer-links {
@@ -591,7 +747,7 @@
 
         .footer-links i {
             margin-right: 10px;
-            color: var(--primary);
+            color: var(--cyber-blue);
         }
 
         .contact-info {
@@ -606,7 +762,7 @@
 
         .contact-info i {
             margin-right: 10px;
-            color: var(--primary);
+            color: var(--cyber-blue);
         }
 
         .social-links {
@@ -628,7 +784,7 @@
         }
 
         .social-link:hover {
-            background: var(--primary);
+            background: var(--cyber-blue);
             transform: translateY(-5px);
         }
 
@@ -691,6 +847,10 @@
                 flex-direction: column;
                 gap: 15px;
             }
+            
+            .logo-text {
+                font-size: 20px;
+            }
         }
 
         @media (max-width: 576px) {
@@ -714,13 +874,13 @@
         <div class="container header-container">
             <div class="logo">
                 <div class="logo-icon">
-                    <i class="fas fa-brain"></i>
+                    <i class="fas fa-network-wired"></i>
                 </div>
-                <div class="logo-text">Nexus<span>AI</span></div>
+                <div class="logo-text">CyberVStacks<span class="ai"></span></div>
             </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
+                <li><a href="#services">Solutions</a></li>
                 <li><a href="#process">Process</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -733,17 +893,22 @@
     <section id="home" class="hero">
         <div class="container hero-content">
             <div class="hero-text">
-                <h1>Transforming Data into <span>Intelligent Solutions</span></h1>
-                <p>We help businesses harness the power of artificial intelligence and machine learning to drive innovation, optimize operations, and unlock new opportunities in the data-driven world.</p>
+                <h1>AI-Powered Solutions for <span>Data-Driven Success</span></h1>
+                <p>CyberVStacks.ai transforms businesses through cutting-edge AI, machine learning, and data science solutions. We help you unlock insights, automate processes, and drive innovation.</p>
                 <div class="hero-btns">
                     <a href="#services" class="btn">Explore Solutions</a>
                     <a href="#contact" class="btn btn-outline">Schedule Consultation</a>
                 </div>
             </div>
             <div class="hero-image">
-                <div class="hero-img-placeholder">
-                    <div style="font-size: 150px; color: #2563eb;">
-                        <i class="fas fa-network-wired"></i>
+                <div class="hero-img-container">
+                    <div class="cyber-grid"></div>
+                    <div class="hero-img-placeholder">
+                        <div class="floating-icons"><i class="fas fa-brain"></i></div>
+                        <div class="floating-icons"><i class="fas fa-robot"></i></div>
+                        <div class="floating-icons"><i class="fas fa-microchip"></i></div>
+                        <div class="floating-icons"><i class="fas fa-chart-line"></i></div>
+                        <div class="main-icon"><i class="fas fa-network-wired"></i></div>
                     </div>
                 </div>
             </div>
@@ -757,28 +922,28 @@
                 <div class="stat-icon">
                     <i class="fas fa-project-diagram"></i>
                 </div>
-                <div class="stat-number">250+</div>
-                <div class="stat-text">Projects Completed</div>
+                <div class="stat-number">180+</div>
+                <div class="stat-text">AI Solutions Deployed</div>
             </div>
             <div class="stat-item">
                 <div class="stat-icon">
                     <i class="fas fa-users"></i>
                 </div>
-                <div class="stat-number">98%</div>
+                <div class="stat-number">97%</div>
                 <div class="stat-text">Client Satisfaction</div>
             </div>
             <div class="stat-item">
                 <div class="stat-icon">
                     <i class="fas fa-lightbulb"></i>
                 </div>
-                <div class="stat-number">15+</div>
+                <div class="stat-number">12+</div>
                 <div class="stat-text">Years Experience</div>
             </div>
             <div class="stat-item">
                 <div class="stat-icon">
                     <i class="fas fa-rocket"></i>
                 </div>
-                <div class="stat-number">3x</div>
+                <div class="stat-number">4.2x</div>
                 <div class="stat-text">Average ROI Increase</div>
             </div>
         </div>
@@ -860,7 +1025,7 @@
     <section id="process" class="process">
         <div class="container">
             <div class="section-title">
-                <h2>Our Proven Process</h2>
+                <h2>Our CyberVStacks Process</h2>
                 <p>We follow a structured approach to ensure successful implementation of AI and data science solutions</p>
             </div>
             <div class="process-container">
@@ -910,13 +1075,13 @@
     <section id="testimonials" class="testimonials">
         <div class="container">
             <div class="section-title">
-                <h2>What Our Clients Say</h2>
-                <p>Success stories from businesses we've transformed with AI and data science</p>
+                <h2>Client Success Stories</h2>
+                <p>Businesses transformed through our AI and data science solutions</p>
             </div>
             <div class="testimonial-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-content">
-                        <p>NexusAI helped us implement a predictive maintenance system that reduced our equipment downtime by 45%. Their expertise in industrial AI is unmatched.</p>
+                        <p>CyberVStacks.ai helped us implement a predictive maintenance system that reduced equipment downtime by 45%. Their expertise in industrial AI is unmatched.</p>
                     </div>
                     <div class="testimonial-author">
                         <div class="author-avatar">MJ</div>
@@ -928,7 +1093,7 @@
                 </div>
                 <div class="testimonial-card">
                     <div class="testimonial-content">
-                        <p>The customer segmentation model developed by NexusAI increased our marketing campaign effectiveness by 30% while reducing acquisition costs.</p>
+                        <p>The customer segmentation model developed by CyberVStacks increased our marketing campaign effectiveness by 30% while reducing acquisition costs.</p>
                     </div>
                     <div class="testimonial-author">
                         <div class="author-avatar">SR</div>
@@ -957,9 +1122,9 @@
     <!-- CTA Section -->
     <section class="cta">
         <div class="container">
-            <h2>Ready to Transform Your Business with AI?</h2>
-            <p>Schedule a free consultation with our experts to discover how our AI and data science solutions can drive growth and innovation for your organization.</p>
-            <a href="#contact" class="btn">Get Started Today</a>
+            <h2>Transform Your Business with AI Today</h2>
+            <p>Schedule a free consultation with our experts to discover how CyberVStacks.ai can drive growth and innovation for your organization.</p>
+            <a href="#contact" class="btn">Get Started Now</a>
         </div>
     </section>
 
@@ -968,8 +1133,8 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h3>Nexus AI</h3>
-                    <p style="color: #cbd5e1; margin-bottom: 20px;">Transforming businesses through innovative AI and data science solutions.</p>
+                    <h3>CyberVStacks.ai</h3>
+                    <p style="color: #cbd5e1; margin-bottom: 20px;">Pioneering AI-driven solutions for data-centric businesses worldwide.</p>
                     <div class="social-links">
                         <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
@@ -978,7 +1143,7 @@
                     </div>
                 </div>
                 <div class="footer-col">
-                    <h3>Services</h3>
+                    <h3>Solutions</h3>
                     <ul class="footer-links">
                         <li><a href="#"><i class="fas fa-chevron-right"></i> Predictive Analytics</a></li>
                         <li><a href="#"><i class="fas fa-chevron-right"></i> Machine Learning</a></li>
@@ -991,7 +1156,7 @@
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
                         <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
-                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Solutions</a></li>
                         <li><a href="#process"><i class="fas fa-chevron-right"></i> Process</a></li>
                         <li><a href="#testimonials"><i class="fas fa-chevron-right"></i> Testimonials</a></li>
                         <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
@@ -1002,13 +1167,13 @@
                     <div class="contact-info">
                         <p><i class="fas fa-map-marker-alt"></i> 123 Innovation Drive, Tech City, TC 10101</p>
                         <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
-                        <p><i class="fas fa-envelope"></i> info@nexusai.com</p>
+                        <p><i class="fas fa-envelope"></i> contact@cybervstacks.ai</p>
                         <p><i class="fas fa-clock"></i> Monday-Friday: 9AM - 6PM</p>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 Nexus AI. All rights reserved. | Designed with <i class="fas fa-heart" style="color: #ef4444;"></i> for AI Innovators</p>
+                <p>&copy; 2023 CyberVStacks.ai. All rights reserved. | Designed for AI Innovators</p>
             </div>
         </div>
     </footer>
@@ -1053,8 +1218,4 @@
         }, observerOptions);
 
         document.querySelectorAll('.stat-item, .service-card, .testimonial-card').forEach(item => {
-            observer.observe(item);
-        });
-    </script>
-</body>
-</html>
+           
