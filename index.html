@@ -1269,7 +1269,7 @@
                     <button type="submit" class="btn">Send Message</button> -->
 
 
-                <form action="https://formsubmit.co/cybervstacks@gmail.com" method="POST">
+                <!-- <form action="https://formsubmit.co/cybervstacks@gmail.com" method="POST">
                     <div class="form-group">
                         <input type="text" name="name" class="form-control" placeholder="Your Name" required>
                     </div>
@@ -1290,8 +1290,32 @@
                         <textarea name="message" class="form-control" placeholder="Your Message" required></textarea>
                     </div>
 
-                    <!-- Optional: prevent spam -->
-                    <input type="hidden" name="_captcha" value="false">
+                    Optional: prevent spam -->
+                    <!-- <input type="hidden" name="_captcha" value="false">
+
+                    <button type="submit" class="btn">Send Message</button> -->
+
+
+                <form id="contact-form">
+                    <div class="form-group">
+                        <input type="text" name="user_name" class="form-control" placeholder="Your Name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="email" name="user_email" class="form-control" placeholder="Your Email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="tel" name="user_phone" class="form-control" placeholder="Your Phone">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" name="subject" class="form-control" placeholder="Subject">
+                    </div>
+
+                    <div class="form-group">
+                        <textarea name="message" class="form-control" placeholder="Your Message" required></textarea>
+                    </div>
 
                     <button type="submit" class="btn">Send Message</button>
 
@@ -1299,6 +1323,28 @@
             </div>
         </div>
     </section>
+
+
+<!-- EmailJS SDK -->
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+    (function(){
+        emailjs.init("bn4T3DTP_moD0wKg1"); // Replace this with your EmailJS Public Key
+    })();
+
+    document.getElementById("contact-form").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        emailjs.sendForm("service_cybervstacks", "template_cybervstacks", this)
+            .then(function(response) {
+                alert("Message sent successfully!");
+                document.getElementById("contact-form").reset();
+            }, function(error) {
+                alert("Failed to send message. Please try again.");
+                console.error("EmailJS Error:", error);
+            });
+    });
+</script>
 
     <!-- FAQ Section -->
     <section id="faq" class="faq">
