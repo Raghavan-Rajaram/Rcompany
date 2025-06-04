@@ -1245,8 +1245,7 @@
             </div>
             
             <div class="contact-form">
-                <!-- <form>  -->
-                <form action="https://formsubmit.co/cybervstacks@gmail.com" method="POST"></form>
+                <!-- <form>
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Your Name" required>
                     </div>
@@ -1267,7 +1266,35 @@
                         <textarea class="form-control" placeholder="Your Message" required></textarea>
                     </div>
                     
+                    <button type="submit" class="btn">Send Message</button> -->
+
+
+                <form action="https://formsubmit.co/cybervstacks@gmail.com" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="tel" name="phone" class="form-control" placeholder="Your Phone">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" name="subject" class="form-control" placeholder="Subject">
+                    </div>
+
+                    <div class="form-group">
+                        <textarea name="message" class="form-control" placeholder="Your Message" required></textarea>
+                    </div>
+
+                    <!-- Optional: prevent spam -->
+                    <input type="hidden" name="_captcha" value="false">
+
                     <button type="submit" class="btn">Send Message</button>
+
                 </form>
             </div>
         </div>
